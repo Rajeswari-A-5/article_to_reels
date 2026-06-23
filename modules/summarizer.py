@@ -1,3 +1,7 @@
+import os
+
+os.environ["NLTK_DATA"] = "/opt/render/nltk_data"
+
 import nltk
 
 nltk.download("punkt")

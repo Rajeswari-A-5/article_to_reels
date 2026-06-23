@@ -1,3 +1,12 @@
+import os
+
+os.environ["NLTK_DATA"] = "/opt/render/nltk_data"
+
+import nltk
+
+nltk.download("punkt")
+nltk.download("punkt_tab")
+
 from flask import Flask, render_template, request
 
 from modules.fetch_article import fetch_article
@@ -7,7 +16,7 @@ from modules.translator import translate_text
 from modules.voice_generator import create_voice
 from modules.video_creator import create_video
 from modules.keyword_extractor import extract_keywords
-import nltk
+
 
 try:
 

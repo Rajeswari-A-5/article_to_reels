@@ -1,27 +1,9 @@
-import ollama
-
-
 def generate_title(summary):
 
-    prompt = f"""
-    Generate a short and catchy title from this summary.
+    words = summary.split()
 
-    Summary:
-    {summary}
+    if len(words) > 7:
 
-    Return only the title.
-    """
+        return " ".join(words[:7]) + "..."
 
-    response = ollama.chat(
-
-        model="llama3.2",
-
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ]
-    )
-
-    return response["message"]["content"]
+    return summary
