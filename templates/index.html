@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>AI Article Summarizer</title>
+
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>AI Article Summarizer</h1>
+
+<form method="POST">
+
+<input
+type="text"
+name="url"
+placeholder="Paste article URL"
+required>
+
+<select name="language">
+
+<option value="ta">Tamil</option>
+
+<option value="hi">Hindi</option>
+
+<option value="te">Telugu</option>
+
+<option value="ml">Malayalam</option>
+
+</select>
+
+<br><br>
+
+<button type="submit">
+
+Generate
+
+</button>
+
+</form>
+
+
+{% if title %}
+
+<div class="card">
+
+<h2>Original Title</h2>
+
+<p>{{ title }}</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>AI Title</h2>
+
+<p>{{ ai_title }}</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Summary</h2>
+
+<p>{{ summary }}</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Translation</h2>
+
+<p>{{ translation }}</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Audio</h2>
+
+<audio controls>
+
+<source
+
+src="{{ url_for('static', filename='summary.mp3') }}"
+
+type="audio/mpeg">
+
+</audio>
+
+</div>
+
+
+<div class="card">
+
+<h2>Video</h2>
+
+<video controls>
+
+<source
+
+src="{{ url_for('static', filename='summary_video.mp4') }}"
+
+type="video/mp4">
+
+</video>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
