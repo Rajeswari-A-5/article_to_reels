@@ -7,6 +7,23 @@ from modules.translator import translate_text
 from modules.voice_generator import create_voice
 from modules.video_creator import create_video
 from modules.keyword_extractor import extract_keywords
+import nltk
+
+try:
+
+    nltk.data.find("tokenizers/punkt")
+
+except LookupError:
+
+    nltk.download("punkt")
+
+try:
+
+    nltk.data.find("tokenizers/punkt_tab")
+
+except LookupError:
+
+    nltk.download("punkt_tab")
 
 app = Flask(__name__)
 
